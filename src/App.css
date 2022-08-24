@@ -1,5 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 *{
+      letter-spacing: 0.025em;
+}
+
+body{
+      background-color: rgb(242, 247, 250);
+}
+
+.logo{
       font-family: 'Poppins', sans-serif;
+}
+
+
+.main-body__container{
+      font-family: 'Roboto','Helvetica Neue','Verdana','Tahoma','Meiryo',sans-serif;
+}
+
+.white--image {
+      -webkit-filter: brightness(0) invert(0.6);
+      filter: brightness(0) invert(1);
+}
+
+.bg-white--color {
+      background-color: rgb(255, 255, 255);
 }
