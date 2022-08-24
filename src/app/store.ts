@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import wordDetailSlice from "../feature/wordDetailSlice";
+import WordDetailSlice from "../feature/wordDetailSlice";
 import SearchWordReducer from '../feature/searchWordSlice';
+import FavouriteWordDetailSlice from "../feature/FavouriteWordDetailSlice";
 
 const store = configureStore({
       reducer: {
             searchedWords: SearchWordReducer,
-            wordDetail: wordDetailSlice,
+            wordDetail: WordDetailSlice,
+            favouriteWordsDetail: FavouriteWordDetailSlice,
       }
 })
 

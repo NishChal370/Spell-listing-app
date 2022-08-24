@@ -1,5 +1,7 @@
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { Home, NavBar } from './component';
+import { NavBar } from './component';
+import { Home, Favourite } from './pages';
 
 function App() {
       
@@ -9,7 +11,12 @@ function App() {
 
                   <main  className="main-body__container flex justify-center mb-[10rem]"
                   >
-                        <Home/>
+                        <Routes>
+                              <Route path="/favorite" element={<Favourite/>} />
+                              <Route path="/" element={<Home/>}/>
+                              <Route path="*" element={<Navigate to="/" replace /> }/>
+                        </Routes>
+                        
                   </main>
             </div>
       );

@@ -1,14 +1,16 @@
-import { DownArrowIcon } from '../../../assets';
 import WordDetail from './WordDetail';
+import { DownArrowIcon, TickIcon } from '../../../assets';
 
 interface SearchCardProps{
       index: string
       title: String
+      showDetail: boolean
+      isInFavourite: boolean
       setDetailShow: (index: string) => void
-      showDetail: {index: string}
+      modifyLocalStore: (word: string) => void
 }
 
-function SearchCard({ index, title, showDetail, setDetailShow }: SearchCardProps) {
+function SearchCard({ index, title, showDetail, setDetailShow, modifyLocalStore, isInFavourite }: SearchCardProps) {
       
       return (
             <div className="flex flex-col gap-2 justify-center bg-[#ffffff] drop-shadow-md px-4 py-3  rounded-lg" >
@@ -18,13 +20,20 @@ function SearchCard({ index, title, showDetail, setDetailShow }: SearchCardProps
                         <h1 className="text-xl text-[#383737] font-bold self-start">{title}</h1>
                                                                   
                         <aside className="flex gap-2 self-end justify-end">
-                              <button className='bg-[#f4cfb662]  text-[#ff6600] rounded-lg px-4 p-1'>Favourite</button>
+                              <button className='bg-[#f4b6b662]  text-[#ff0000] rounded-lg px-4 p-1 flex gap-1'
+                                    onClick={()=>modifyLocalStore(index)}
+                              >
+                                    Favourite
+                                    <img className={`w-6 self-center ${(isInFavourite ?'hidden': '')}`}
+                                          src={TickIcon} alt="tick-icon" 
+                                    />
+                              </button>
                               
-                              <button className='bg-[#ff6600] text-white rounded-lg px-4 p-1 flex gap-2'
+                              <button className='bg-[#ff0000] text-white rounded-lg px-4 p-1 flex gap-2'
                                     onClick={()=>setDetailShow(index)}
                               >
                                     Detail
-                                    <img className={`w-4 self-center white--image ${(showDetail.index === index)  ? 'rotate-180' : ''}`}
+                                    <img className={`w-4 self-center white--image ${(showDetail)  ?'rotate-180' : ''}`}
                                           src={DownArrowIcon} alt="down-icon" 
                                     />
                               </button>
@@ -32,7 +41,7 @@ function SearchCard({ index, title, showDetail, setDetailShow }: SearchCardProps
                   </header>
 
                   <WordDetail
-                        toShow={(showDetail.index === index)}
+                        toShow={showDetail}
                         index={index}
                   />
             </div>

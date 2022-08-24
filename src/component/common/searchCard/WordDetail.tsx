@@ -25,9 +25,8 @@ function WordDetail({ toShow, index}: WordDetailProps) {
                         {[...Array(wordDetail['level'])].map(()=> <Star key={nanoid()}/>)}
                   </div>
 
-                  <article className="w-[96%] bg-[#ffffff] rounded-b-lg self-center text-justify ">
+                  <article className="w-[96%] bg-[#ffffff] rounded-b-lg self-center text-justify">
                         <h3>
-                              {wordDetail['name']}
                               {wordDetail['desc'].map((word: any)=> <span key={nanoid()}>{word}</span>)}
                         </h3>
                   </article>
