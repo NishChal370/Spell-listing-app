@@ -1,19 +1,30 @@
 import { nanoid } from "nanoid";
+import { useAppSelector } from "../../app/hooks";
 import SearchCard from "./searchCard/SearchCard";
 
 function SearchedWords() {
+      const { loading, error, searchedWords, isEmptySearch } = useAppSelector(state => state.searchedWords);
       
-      return (
+      if(isEmptySearch) return <h1>{error}</h1>
+
+      if ( loading ) return <h1>Loading...</h1>
+
+      if ( !loading && error ) return <h1>{"Error: "+ error}</h1>
+
+
+      if (!loading && Object.keys(searchedWords).length) return (
             <>
-            { [...Array(10)].map( ()=>{return(
+            { searchedWords.map( ({name})=>{return(
 
                   <SearchCard key={nanoid()}
-                        title="Antilife Shell"
+                        title={name}
                   />
             )} ) }
             </>
             
       )
+
+      return null
 }
 
 export default SearchedWords

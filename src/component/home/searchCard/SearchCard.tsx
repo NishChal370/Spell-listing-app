@@ -3,7 +3,7 @@ import { useShowWordDetail } from '../../../hooks';
 import WordDetail from './WordDetail';
 
 interface SearchCardProps{
-      title: string
+      title: String
 }
 
 function SearchCard({title}: SearchCardProps) {

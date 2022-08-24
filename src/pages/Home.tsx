@@ -1,8 +1,10 @@
 import { SearchIcon, } from "../assets";
+import { useSearchInput } from "../hooks";
 import { SearchedWords } from "../component";
 
 function Home() {
-      
+      const [inputValue, changeInputHandler, submitInputHandler] = useSearchInput('');
+
       return (
             <div className="home__container flex flex-col gap-14 justify-center mt-[8rem]
                         sm:w-[46rem]
@@ -14,20 +16,24 @@ function Home() {
                               Search for the desired word
                         </h1>
                         
-                        <div className="flex justify-center drop-shadow-md h-[2.22rem]
+                        <form className="flex justify-center drop-shadow-md h-[2.22rem]
                                     sm:h-[2.66rem]"
+                                    onSubmit={submitInputHandler}
                         >
-                              <input className="w-[80%] h-full px-4  py-1 self-center text-lg bg-white  focus:outline-none focus:shadow-outline focus:border-y-[#036aa19d] focus:border-l-[#036aa19d] focus:border-l-2 focus:border-y-2 focus:rounded-l-lg" 
+                              <input className="w-[80%] h-full px-4  py-1 self-center text-lg bg-white rounded-l-lg focus:outline-none focus:shadow-outline focus:border-y-[#036aa19d] focus:border-l-[#036aa19d] focus:border-l-2 focus:border-y-2" 
                                     type="text" placeholder="Search words..."
+                                    value={inputValue} onChange={changeInputHandler}
                               />
 
-                              <button className="w-[12%] h-full pl-3 pr-2 py-2 bg-[#036aa1f1] border-1 flex justify-center hover:border-[#0369a1]  drop-shadow-2xl rounded-r-lg">
+                              <button className="w-[12%] h-full pl-3 pr-2 py-2 bg-[#036aa1f1] border-1 flex justify-center hover:border-[#0369a1]  drop-shadow-2xl rounded-r-lg"
+                                    type="submit"
+                              >
                                     <img className="w-[70%] h-full white--image object-contains self-center
                                                 md:w-[2rem]" 
                                           src={SearchIcon} alt="search-icon"
                                     />
                               </button>
-                        </div>
+                        </form>
                   </header>
 
 
