@@ -21,7 +21,7 @@ function Home() {
                                     onSubmit={submitInputHandler}
                         >
                               <input className="w-[80%] h-full px-4  py-1 self-center text-lg bg-white rounded-l-lg focus:outline-none focus:shadow-outline focus:border-y-[#036aa19d] focus:border-l-[#036aa19d] focus:border-l-2 focus:border-y-2" 
-                                    type="text" placeholder="Search words..."
+                                    type="text" placeholder="Search words... [suggested word: h]"
                                     value={inputValue} onChange={changeInputHandler}
                               />
 

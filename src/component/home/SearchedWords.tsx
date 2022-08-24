@@ -14,9 +14,10 @@ function SearchedWords() {
 
       if (!loading && Object.keys(searchedWords).length) return (
             <>
-            { searchedWords.map( ({name})=>{return(
+            { searchedWords.map( ({index, name})=>{return(
 
                   <SearchCard key={nanoid()}
+                        index = {index}
                         title={name}
                   />
             )} ) }
