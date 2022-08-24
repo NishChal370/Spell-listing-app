@@ -1,17 +1,14 @@
-import { useAppSelector } from '../../../app/hooks';
 import { DownArrowIcon } from '../../../assets';
-import { useShowWordDetail } from '../../../hooks';
 import WordDetail from './WordDetail';
 
 interface SearchCardProps{
       index: string
       title: String
+      setDetailShow: (index: string) => void
+      showDetail: {index: string}
 }
 
-function SearchCard({ index, title }: SearchCardProps) {
-      const { wordDetail} = useAppSelector(state => state.wordDetail);
-
-      const [showDetail, setDetailShow] = useShowWordDetail(false);
+function SearchCard({ index, title, showDetail, setDetailShow }: SearchCardProps) {
       
       return (
             <div className="flex flex-col gap-2 justify-center bg-[#ffffff] drop-shadow-md px-4 py-3  rounded-lg" >
@@ -27,7 +24,7 @@ function SearchCard({ index, title }: SearchCardProps) {
                                     onClick={()=>setDetailShow(index)}
                               >
                                     Detail
-                                    <img className={`w-4 self-center white--image ${(wordDetail['index'] === index && showDetail)  ? 'rotate-180' : ''}`}
+                                    <img className={`w-4 self-center white--image ${(showDetail.index === index)  ? 'rotate-180' : ''}`}
                                           src={DownArrowIcon} alt="down-icon" 
                                     />
                               </button>
@@ -35,7 +32,7 @@ function SearchCard({ index, title }: SearchCardProps) {
                   </header>
 
                   <WordDetail
-                        toShow={showDetail}
+                        toShow={(showDetail.index === index)}
                         index={index}
                   />
             </div>

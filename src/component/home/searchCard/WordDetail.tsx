@@ -9,8 +9,8 @@ interface WordDetailProps{
 
 function WordDetail({ toShow, index}: WordDetailProps) {
       const { loading, error, wordDetail} = useAppSelector(state => state.wordDetail);
-
-      if((wordDetail['index'] === index || toShow) && loading) return <h1>Loading..</h1>
+      
+      if( toShow && loading) return <h1>Loading..</h1>
       
       if (!(wordDetail['index'] === index)) return null;
 
@@ -18,7 +18,7 @@ function WordDetail({ toShow, index}: WordDetailProps) {
       if ( !loading && error ) return <h1>{"Error: "+ error}</h1>
       
       if (!loading && Object.keys(wordDetail).length)return (
-            <main className={`flex flex-col gap-2 ${!(wordDetail['index'] === index) && 'hidden'}`}>
+            <main className="flex flex-col gap-2">
                   <div className="star__container flex gap-1">
                         <h3 className="font-semibold text-md text-[#383737de]">Level: </h3>
                         
@@ -28,7 +28,7 @@ function WordDetail({ toShow, index}: WordDetailProps) {
                   <article className="w-[96%] bg-[#ffffff] rounded-b-lg self-center text-justify ">
                         <h3>
                               {wordDetail['name']}
-                             {wordDetail['desc'].map((word: any)=> <span key={nanoid()}>{word}</span>)}
+                              {wordDetail['desc'].map((word: any)=> <span key={nanoid()}>{word}</span>)}
                         </h3>
                   </article>
             </main>

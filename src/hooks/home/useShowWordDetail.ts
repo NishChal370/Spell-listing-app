@@ -1,24 +1,28 @@
+import { useState } from "react";
 import { clearWordDetail, fetchWordDetail } from './../../feature/wordDetailSlice';
 import { useAppDispatch } from './../../app/hooks';
-import { useState } from "react";
 
 
 
-
-function useShowWordDetail(toShow: boolean) {
+function useShowWordDetail() {
       const dispatch = useAppDispatch();
-      const [showDetail, setShowDetail] = useState<boolean>(toShow);
+      const [showDetail, setShowDetail] = useState({index:''});
 
       const setDetailShow = (index: string): void=>{
-            setShowDetail(prevState=> !prevState)
-            
-            if(!showDetail){
+
+            setShowDetail(prevState=>{
+
+                  if(prevState.index === index){
+                        dispatch(clearWordDetail());
+
+                        return { index: '' }
+                  }
+
                   dispatch(fetchWordDetail(index));
-            }
-            
-            if(showDetail){
-                  dispatch(clearWordDetail())
-            }
+
+                  return{ index: index }
+            })
+
       }
 
       return [showDetail, setDetailShow] as const
