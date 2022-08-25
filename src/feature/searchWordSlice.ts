@@ -1,6 +1,7 @@
+import { URL_SEARCH_NAME } from './../api/Constant';
 import { List } from 'reselect/es/types';
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import axios from "axios";
+import { AXIOS } from '../api/Constant';
 
 
 interface SearchWord{
@@ -30,8 +31,8 @@ export const fetchSearchedWord = createAsyncThunk(
       (searchedWord: string)=>{
             if(searchedWord === '') return SEARCHED_EMPTY
 
-            return axios
-                  .get(`https://www.dnd5eapi.co/api/spells/?name=${searchedWord}`)
+            return AXIOS
+                  .get(URL_SEARCH_NAME+searchedWord)
                   .then( ({data})=>data.results )
       }
 )

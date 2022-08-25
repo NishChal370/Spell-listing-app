@@ -1,5 +1,5 @@
-import axios from "axios";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { AXIOS } from "../api/Constant";
 
 type InitialState = {
       loading: boolean,
@@ -11,8 +11,8 @@ type InitialState = {
 export const fetchWordDetail = createAsyncThunk(
       '/fetchWordDetail',
       (word: string)=>{
-            return axios
-                  .get(`https://www.dnd5eapi.co/api/spells/${word}`)
+            return AXIOS
+                  .get(word)
                   .then( ({data})=>data )
       }
 )

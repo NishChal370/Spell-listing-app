@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
-import axios from "axios"
+import { AXIOS } from "../api/Constant"
 
 
 type FavouriteWord = {
@@ -17,8 +17,8 @@ export const fetchFavouriteWord = createAsyncThunk(
       '/fetchFavouriteWord',
       (favouriteWord: string)=>{
 
-            return axios
-                  .get(`https://www.dnd5eapi.co/api/spells/${favouriteWord}`)
+            return AXIOS
+                  .get(favouriteWord)
                   .then( ({data})=>{return {name: data['name'], index: data['index']}} )
       }
 )
