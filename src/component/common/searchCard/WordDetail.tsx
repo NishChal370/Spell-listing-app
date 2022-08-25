@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import Star from './Star';
-import { LoadingMessage } from '../../index';
 import { useAppSelector } from '../../../app/hooks';
+import { LoadingMessage, ErrorMessage } from '../../index';
 
 interface WordDetailProps{
       toShow: boolean,
@@ -16,7 +16,7 @@ function WordDetail({ toShow, index}: WordDetailProps) {
       if (!(wordDetail['index'] === index)) return null;
 
 
-      if ( !loading && error ) return <h1>{"Error: "+ error}</h1>
+      if ( !loading && error ) return <ErrorMessage error={error}/>
       
       if (!loading && Object.keys(wordDetail).length)return (
             <main className="flex flex-col gap-2">
