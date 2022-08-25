@@ -1,46 +1,101 @@
-# Getting Started with Create React App
+<p align="center">
+<img src="![pngwing com](https://user-images.githubusercontent.com/73095396/186565290-9a7e8e31-07d8-4dd8-adf0-db5026f6ab1b.png)" alt="logo" />
+<h1 align="center" >Spell listing app 0.1.0</h1>
+ 
+<p align="center">
+      Spell listing is a simple application developed using ReactJS. It enables users to look up the necessary word or spelling and read the term's definition along with its level or star. The users of this application can add and remove any terms from their favorite list as they choose.
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Used API: http://www.dnd5eapi.co/**
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The application has two pages, a Home page, and a Favourite Page
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+:point_right: **On the Home Page users can**
+- [x] Search required spellings/words.
+- [x] View its detail.
+- [x] View searched word level/stars.
+- [x] Add/remove the required spelling/words to favourite list.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+:point_right: **On the Favourite Page users can**
+- [x] View existing favourite spellings/words.
+- [x] View its details.
+- [x] View favourite spellings/words level/stars.
+- [x] Remove required spellings/words from favourite list.
 
-### `npm run build`
+**Note: LocalStore is used to store favourite spellings/words.**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Note: The application is responsive for every device.**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Used Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+:fire: **React : "^18.2.0"** 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+:fire: **TypeScript : "^4.7.4"** 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+:fire: **Redux toolkit : "^8.0.2"** 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+:fire: **Tailwind : "^3.1.8"**
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
+## Used Packages / Dependencies
+
+:monkey: **axios : "^0.27.2"**
+
+:monkey: **react-paginate : "^8.1.3"**
+
+:monkey: **react-router-dom : "^18.0.6"**
+
+:monkey: **nanoid : "^4.0.0"**
+
+
+
+
+## Installation
+
+**Clone the repo**
+
+```sh
+# Clone the repo
+https://github.com/NishChal370/Spell-listing-app.git
+```
+
+**Install the app**
+
+```sh
+# Install dependencies
+npm install
+
+# Build the project
+npm run build
+
+# Run the app
+npm start
+```
+
+
+
+## Package uses
+
+***axios :*** It is used to send asynchronous HTTP requests to REST endpoints. This library is very useful to perform CRUD operations. This popular library is used to communicate with the backend. Axios supports the Promise API, native to JS ES6.
+
+***react-router-dom :*** React Router is used to define multiple routes in the application. When a user types a specific URL into the browser, and if this URL path matches any 'route' inside the router file, the user will be redirected to that particular route.
+
+***react-paginate :*** It is used to allow users can easily switch between pages across a website or app. With the help of this component, a user can select a specific page from a range of pages.
+
+***nanoid :*** A tiny, secure, URL-friendly, unique string ID generator for JavaScript.
+
+
+
+***
+Thanks [Proshore Nepal Pvt. Ltd](https://proshore.eu/) for assigning the project. :raised_hands:
+
+***
 To learn React, check out the [React documentation](https://reactjs.org/).
