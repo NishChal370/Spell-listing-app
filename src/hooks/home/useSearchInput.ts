@@ -7,12 +7,12 @@ function useSearchInput(initialState: string) {
       const dispatch = useAppDispatch();
       const [inputValue, setInputValue] = useState<string>(initialState);
 
-      const changeInputHandler = ({target}:  React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) =>{
+      const changeInputHandler = ({target}:  React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void =>{
             
             setInputValue(target.value);
       }
 
-      const submitInputHandler = (event: React.FormEvent<HTMLFormElement>) =>{
+      const submitInputHandler = (event: React.FormEvent<HTMLFormElement>): void =>{
             event.preventDefault();
 
             dispatch(fetchSearchedWord(inputValue));

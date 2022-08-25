@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid';
 import Star from './Star';
+import { LoadingMessage } from '../../index';
 import { useAppSelector } from '../../../app/hooks';
 
 interface WordDetailProps{
@@ -8,9 +9,9 @@ interface WordDetailProps{
 }
 
 function WordDetail({ toShow, index}: WordDetailProps) {
-      const { loading, error, wordDetail} = useAppSelector(state => state.wordDetail);
+      const { loading, error, wordDetail } = useAppSelector(state => state.wordDetail);
       
-      if( toShow && loading) return <h1>Loading..</h1>
+      if( toShow && loading) return <LoadingMessage/>
       
       if (!(wordDetail['index'] === index)) return null;
 

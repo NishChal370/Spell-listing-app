@@ -1,4 +1,4 @@
-import WordDetail from './WordDetail';
+import { WordDetail } from '../../index';
 import { DownArrowIcon, TickIcon } from '../../../assets';
 
 interface SearchCardProps{

@@ -1,7 +1,8 @@
 import { nanoid } from "nanoid";
+import { EmptyGif } from "../../assets";
 import { useAppSelector } from "../../app/hooks";
-import SearchCard from "../common/searchCard/SearchCard";
 import { useLocalStore, useShowWordDetail } from "../../hooks";
+import { SearchCard, ErrorMessage, LoadingMessage, EmptyMessage } from "../index";
 
 function FavouriteCards() {
       const [showDetail, setDetailShow] = useShowWordDetail();
@@ -9,9 +10,9 @@ function FavouriteCards() {
       const { loading, error, favouriteWordsList } = useAppSelector(state => state.favouriteWordsDetail);
 
       
-      if ( loading ) return <h1>Loading...</h1>
+      if ( loading ) return <LoadingMessage/>
 
-      if ( !loading && error ) return <h1>{"Error: "+ error}</h1>
+      if ( !loading && error ) return <ErrorMessage error={error}/>
 
 
       if (!loading && Object.keys(favouriteWordsList).length) return (
@@ -31,7 +32,7 @@ function FavouriteCards() {
             
       )
 
-      return <h3>Favourite List is Empty</h3>
+      return <EmptyMessage error="Favourite List is Empty" imageLink={EmptyGif} />
 }
 
 export default FavouriteCards

@@ -1,18 +1,21 @@
 import { nanoid } from "nanoid";
+import { NoSearchGif } from "../../assets";
 import { useAppSelector } from "../../app/hooks";
 import { useLocalStore, useShowWordDetail } from "../../hooks";
-import SearchCard from "../common/searchCard/SearchCard";
+import { SearchCard, ErrorMessage, LoadingMessage, EmptyMessage } from "../index";
+
 
 function SearchedWords() {
       const [showDetail, setDetailShow] = useShowWordDetail();
       const [localStorage, modifyLocalStore] = useLocalStore();
       const { loading, error, searchedWords, isEmptySearch } = useAppSelector(state => state.searchedWords);
-      
-      if(isEmptySearch) return <h1>{error}</h1>
 
-      if ( loading ) return <h1>Loading...</h1>
 
-      if ( !loading && error ) return <h1>{"Error: "+ error}</h1>
+      if(isEmptySearch) return <EmptyMessage error={error}  imageLink={NoSearchGif}/>
+
+      if ( loading ) return <LoadingMessage/>
+
+      if ( !loading && error ) return <ErrorMessage error={error}/>
 
 
       if (!loading && Object.keys(searchedWords).length) return (

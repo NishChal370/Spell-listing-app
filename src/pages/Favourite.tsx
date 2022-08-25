@@ -1,7 +1,7 @@
-import { useEffect } from "react"
+import { useEffect } from "react";
 import { useLocalStore } from "../hooks";
 import { useAppDispatch } from "../app/hooks";
-import { FavouriteCards } from "../component"
+import { FavouriteCards } from "../component";
 import { clearFavourite, fetchFavouriteWord } from "../feature/FavouriteWordDetailSlice";
 
 function Favourite() {

@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { List } from "reselect/es/types";
 import { useAppDispatch } from "../../app/hooks";
 import { removeFavouriteWord } from "../../feature/FavouriteWordDetailSlice";
 
 
-const getLocalStore = ()=>{
+const getLocalStore = (): string[] =>{
       let localStorePresent = localStorage.getItem('favouriteWords');
       
       if(localStorePresent == null) return []
@@ -15,10 +14,10 @@ const getLocalStore = ()=>{
 
 function useLocalStore() {
       const dispatch = useAppDispatch();
-      const [localStore, setLocalStore] = useState<List>(getLocalStore());
+      const [localStore, setLocalStore] = useState<string[]>(getLocalStore());
 
-      const modifyLocalStore = (word: string)=>{
-            let localStorePresent =  getLocalStore();
+      const modifyLocalStore = (word: string): void=>{
+            let localStorePresent: string[] =  getLocalStore();
 
             localStorePresent = (!localStorePresent.includes(word))
                         ? addLocalStore(word)
@@ -29,8 +28,8 @@ function useLocalStore() {
             localStorage.setItem('favouriteWords', JSON.stringify(localStorePresent));
       }
 
-      const addLocalStore = (word: string): void=>{
-            let localStorePresent =  getLocalStore();
+      const addLocalStore = (word: string): string[]=>{
+            let localStorePresent: string[]  =  getLocalStore();
 
             localStorePresent.push(word);
 
@@ -38,7 +37,7 @@ function useLocalStore() {
       }
 
 
-      const removeLocalStore = (word: string): void=>{
+      const removeLocalStore = (word: string): string[]=>{
             let localStorePresent =  getLocalStore();
 
             dispatch(removeFavouriteWord(word));
