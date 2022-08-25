@@ -1,5 +1,5 @@
 <p align="center">
-<img src="![pngwing com](https://user-images.githubusercontent.com/73095396/186565290-9a7e8e31-07d8-4dd8-adf0-db5026f6ab1b.png)" alt="logo" />
+<img src="https://spell-listing-app.netlify.app/static/media/logo.795b578bd0441e1e9fb6.png" alt="logo" />
 <h1 align="center" >Spell listing app 0.1.0</h1>
  
 <p align="center">
