@@ -10,15 +10,16 @@ function useShowWordDetail() {
 
       const setDetailShow = (index: string): void=>{
 
+            (showDetail.index === index)
+                  ? dispatch(clearWordDetail())
+                  : dispatch(fetchWordDetail(index));
+
             setShowDetail(prevState=>{
 
                   if(prevState.index === index){
-                        dispatch(clearWordDetail());
 
                         return { index: '' }
                   }
-
-                  dispatch(fetchWordDetail(index));
 
                   return{ index: index }
             })
