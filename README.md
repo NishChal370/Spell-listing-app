@@ -96,8 +96,10 @@ npm start
 
 
 
-***
-Thanks [Proshore Nepal Pvt. Ltd](https://proshore.eu/) for assigning the project. :raised_hands:
+## Test Coverage
+
+![final](https://user-images.githubusercontent.com/73095396/187506876-b4759a25-497a-4dd4-a4aa-0baf7935d594.png)
+
 
 ***
 To learn React, check out the [React documentation](https://reactjs.org/).
