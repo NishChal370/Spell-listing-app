@@ -20,16 +20,16 @@ function SearchCard({ index, title, showDetail, setDetailShow, modifyLocalStore,
                         <h1 className="text-xl text-[#383737] font-bold self-start">{title}</h1>
                                                                   
                         <aside className="flex gap-2 self-end justify-end">
-                              <button className='bg-[#f4b6b662]  text-[#ff0000] rounded-lg px-4 p-1 flex gap-1'
+                              <button role='favourite-button' className='bg-[#f4b6b662]  text-[#ff0000] rounded-lg px-4 p-1 flex gap-1'
                                     onClick={()=>modifyLocalStore(index)}
                               >
                                     Favourite
-                                    <img className={`w-6 self-center ${(isInFavourite ?'hidden': '')}`}
+                                    <img role='favourite-img' className={`w-6 self-center ${(isInFavourite ?'hidden': '')}`}
                                           src={TickIcon} alt="tick-icon" 
                                     />
                               </button>
                               
-                              <button className='bg-[#ff0000] text-white rounded-lg px-4 p-1 flex gap-2'
+                              <button role='showDetail-button' className='bg-[#ff0000] text-white rounded-lg px-4 p-1 flex gap-2'
                                     onClick={()=>setDetailShow(index)}
                               >
                                     Detail

@@ -9,7 +9,7 @@ function NavBar() {
                         md:px-12"
             >
                   <div className="flex flex-row gap-2">
-                        <div  className="logo w-8 h-8 self-center cursor-pointer
+                        <div role='logo-button'  className="logo w-8 h-8 self-center cursor-pointer
                                     md:w-10 md:h-10" 
                               onClick={()=>navigate('/')}
                         >
@@ -26,7 +26,7 @@ function NavBar() {
                         </h1>
                   </div>
 
-                  <aside className="w-9 h-9 p-1 self-center border-2 rounded-[50%] border-[#0369a1] cursor-pointer hover:drop-shadow-xl
+                  <aside role='favourite-button' className="w-9 h-9 p-1 self-center border-2 rounded-[50%] border-[#0369a1] cursor-pointer hover:drop-shadow-xl
                                     md:w-12 md:h-12" 
                         onClick={()=>navigate('/favorite')}
                   >
